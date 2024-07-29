@@ -64,7 +64,7 @@ customers = pd.read_csv(path + 'olist_customers_dataset.csv')
 - Merge datasets to create a consolidated dataframe
 
 python
-# Example of merging datasets
+# merging datasets
 orders['order_purchase_timestamp'] = pd.to_datetime(orders['order_purchase_timestamp'])
 order_data = orders.merge(order_items, on='order_id').merge(payments, on='order_id')
 ```
@@ -78,7 +78,7 @@ order_data = orders.merge(order_items, on='order_id').merge(payments, on='order_
 ```python
 import matplotlib.pyplot as plt
 
-# Example: Monthly sales plot
+#  Monthly sales plot
 monthly_sales = order_data.resample('M', on='order_purchase_timestamp').sum()
 plt.figure(figsize=(10,6))
 plt.plot(monthly_sales.index, monthly_sales['payment_value'])
